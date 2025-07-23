@@ -1,0 +1,9 @@
+{
+  "mcps": {
+    "mcp-log-analyzer": {
+      "command": "python",
+      "args": ["main.py"],
+      "env": {}
+    }
+  }
+}

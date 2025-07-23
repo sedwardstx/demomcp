@@ -1,0 +1,36 @@
+# MCP Log Analyzer Default Configuration
+
+server:
+  host: "127.0.0.1"
+  port: 5000
+  debug: false
+  workers: 4
+
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "logs/mcp_server.log"
+
+storage:
+  cache_dir: "cache"
+  max_cache_size_mb: 1024
+
+parsers:
+  evt:
+    batch_size: 1000
+    max_events: 10000
+  structured:
+    allowed_formats: ["json", "xml"]
+    max_file_size_mb: 100
+  csv:
+    default_delimiter: ","
+    infer_types: true
+    sample_size: 1000
+  unstructured:
+    max_line_length: 10000
+    max_file_size_mb: 50
+
+models:
+  embedding_model: "sentence-transformers/all-MiniLM-L6-v2"
+  default_max_tokens: 2048
+  max_context_window: 16384 
